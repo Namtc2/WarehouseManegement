@@ -21,11 +21,11 @@ namespace WarehouseManegement.UserControlNamtc
     /// </summary>
     public partial class CustomControlBar : UserControl
     {
-        public ControlBarViewModel ViewModel { get; set; }
+        public CustomControlBarViewModel ViewModel { get; set; }
         public CustomControlBar()
         {
             InitializeComponent();
-            this.DataContext = ViewModel = new ControlBarViewModel();
+            this.DataContext = ViewModel = new CustomControlBarViewModel();
         }
     }
 }

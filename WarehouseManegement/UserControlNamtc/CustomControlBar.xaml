@@ -4,11 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WarehouseManegement.UserControlNamtc"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"  
+             Name="ucControlBar"
              
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800">    
+    <i:Interaction.Triggers>
+        <!--Thực hiện kéo thanh Barview di chuyển window-->
+        <i:EventTrigger EventName="MouseLeftButtonDown">
+            <i:InvokeCommandAction 
+                Command="{Binding MouseMoveWindowCommand}"
+                CommandParameter="{Binding ElementName=ucControlBar}">                
+            </i:InvokeCommandAction>
+        </i:EventTrigger>
+        <!--end-->
+    </i:Interaction.Triggers>
     <Grid>
         <materialDesign:ColorZone Padding="5" Mode="PrimaryMid" Height="50">
             <DockPanel>                
@@ -21,13 +32,19 @@
                         </Style>
                     </StackPanel.Resources>-->
                     <Button Margin="2"  Background="Gray"
+                            Command="{Binding MinimizeWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"
                             Content="{materialDesign:PackIcon Kind=Minus}"
                             ToolTip="Follow me on Twitter" />
                     <Button Margin="2" Background="Gray"
+                            Command="{Binding MaximizeWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"
                             Content="{materialDesign:PackIcon Kind=WindowMaximize}"
                             ToolTip="Follow me on Twitter" />
 
                     <Button Margin="2" Background="Crimson"
+                            Command="{Binding CloseWindowCommand}"
+                            CommandParameter="{Binding ElementName=ucControlBar}"
                             Content="{materialDesign:PackIcon Kind=WindowClose}"
                             ToolTip="Follow me on Twitter" />
                 </StackPanel>
@@ -38,7 +55,7 @@
                     <TextBlock
                         Margin="16,0,0,0"
                         VerticalAlignment="Center"
-                        Text="Tên window" />
+                        Text="{Binding Tag, ElementName=ucControlBar}" />
                 </StackPanel>
             </DockPanel>
         </materialDesign:ColorZone>

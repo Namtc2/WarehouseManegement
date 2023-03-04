@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseManegement"
         mc:Ignorable="d"
-        
+        Name="Login_Window"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       TextElement.FontWeight="Regular"
@@ -17,15 +17,15 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         xmlns:customUC ="clr-namespace:WarehouseManegement.UserControlNamtc"
-        
-        Title="Đăng nhập hệ thống quản lý kho" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Đăng nhập phần mềm quản lý kho" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition></RowDefinition>            
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <customUC:CustomControlBar></customUC:CustomControlBar>
+            <customUC:CustomControlBar Tag="{Binding Title, ElementName=Login_Window}"></customUC:CustomControlBar>
         </Grid>
         <Grid Grid.Row="1" >
             <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Center">
