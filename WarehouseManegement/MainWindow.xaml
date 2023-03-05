@@ -53,11 +53,11 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0" Margin="2" Height="50"
-                            Style="{StaticResource MaterialDesignRaisedLightButton}"
-                            Command="{Binding MinimizeWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucControlBar}"                           
+                            Command="{Binding InputCommand}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"                        
                             ToolTip="Nhập kho">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -74,9 +74,8 @@
                     </Button>
 
                     <Button Grid.Column="1" Margin="2" Height="50"
-                            Style="{StaticResource MaterialDesignRaisedLightButton}"
-                            Command="{Binding MinimizeWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucControlBar}"                           
+                            Command="{Binding OutputCommand}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"                          
                             ToolTip="Xuất kho">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -84,7 +83,7 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
                             <Grid Grid.Row="0">
-                                <TextBlock Text="Xuất khg"></TextBlock>
+                                <TextBlock Text="Xuất kho"></TextBlock>
                             </Grid>
                             <Grid Grid.Row="1">
                                 <materialDesign:PackIcon Kind="ArchiveArrowUpOutline" Width="24" Height="24" HorizontalAlignment="Center"/>
@@ -93,9 +92,8 @@
                     </Button>
 
                     <Button Grid.Column="2" Margin="2" Height="50"
-                            Style="{StaticResource MaterialDesignRaisedLightButton}"
-                            Command="{Binding MinimizeWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucControlBar}"                           
+                            Command="{Binding ObjectCommand}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"                         
                             ToolTip="Hàng hóa">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -112,8 +110,8 @@
                     </Button>
 
                     <Button Grid.Column="3" Margin="2" Height="50"
+                            Command="{Binding UnitCommand}"
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
-                            Command="{Binding MinimizeWindowCommand}"
                             CommandParameter="{Binding ElementName=ucControlBar}"                           
                             ToolTip="Đơn vị đo">
                         <Grid>
@@ -130,10 +128,9 @@
                         </Grid>
                     </Button>
 
-                    <Button Grid.Column="4" Margin="2" Height="50"
+                    <Button Grid.Column="4" Margin="2" Height="50" Padding="0"
                             Style="{StaticResource MaterialDesignRaisedLightButton}"
-                            Command="{Binding MinimizeWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucControlBar}"                           
+                            Command="{Binding SuplierCommand}"
                             ToolTip="Nhà cung cấp">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -148,12 +145,9 @@
                             </Grid>
                         </Grid>
                     </Button>
-
-
                     <Button Grid.Column="5" Margin="2" Height="50"
-                            Style="{StaticResource MaterialDesignRaisedLightButton}"
-                            Command="{Binding MinimizeWindowCommand}"
-                            CommandParameter="{Binding ElementName=ucControlBar}"                           
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"                              
+                            Command="{Binding CustomersCommand}"
                             ToolTip="Khách hàng">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -165,6 +159,23 @@
                             </Grid>
                             <Grid Grid.Row="1">
                                 <materialDesign:PackIcon Kind="HumanMaleFemaleChild" Width="24" Height="24" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </Grid>
+                    </Button> 
+                    <Button Grid.Column="6" Margin="2" Height="50"
+                            Command="{Binding UserCommand}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            ToolTip="Người dùng">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Người dùng"></TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <materialDesign:PackIcon Kind="AccountBoxOutline" Width="24" Height="24" HorizontalAlignment="Center"/>
                             </Grid>
                         </Grid>
                     </Button>

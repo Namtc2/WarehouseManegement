@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\NamTC\Code\WPF\WarehouseManegement\WarehouseManegement\App.xaml
-4481117383
+11-1924428313
 
-11581680541
+181025211037
 181020149369
-LoginWindow.xaml;MainWindow.xaml;ResourceXAML\MainResource.xaml;UserControlNamtc\CustomControlBar.xaml;
+CustomersWindow.xaml;InputWindow.xaml;LoginWindow.xaml;MainWindow.xaml;ObjectWindow.xaml;OutputWindow.xaml;ResourceXAML\MainResource.xaml;SuplierWindow.xaml;UnitWindow.xaml;UserControlNamtc\CustomControlBar.xaml;UserWindow.xaml;
 
 True
 
