@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WarehouseManegement.Model;
 
 namespace WarehouseManegement.ViewModel
 {
@@ -24,9 +25,21 @@ namespace WarehouseManegement.ViewModel
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return p != null ? true : false; }, (p) =>
             {
                 isLoaded = true;
+                if (p == null) return;
+                p.Hide();
                 LoginWindow loginWd = new LoginWindow();
                 loginWd.Topmost = true;
                 loginWd.ShowDialog();
+                if (loginWd.DataContext == null) return;
+                var loginVM = loginWd.DataContext as LoginViewModel;
+                if (loginVM.IsLogin)
+                {
+                    p.Show();
+                }
+                else
+                {
+                    p.Close();
+                }                
             });
             UnitCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {

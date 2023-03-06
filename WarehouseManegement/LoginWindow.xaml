@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WarehouseManegement"
+         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Name="Login_Window"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -18,7 +19,18 @@
         WindowStyle="None"
         xmlns:customUC ="clr-namespace:WarehouseManegement.UserControlNamtc"
         WindowStartupLocation="CenterScreen"
+        DataContext="{StaticResource LoginVM}"
         Title="Đăng nhập phần mềm quản lý kho" Height="450" Width="800">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction
+                Command="{Binding LoadedWindowCommand}"
+                CommandParameter="{Binding ElementName=Main_Window}">
+            </i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -42,6 +54,7 @@
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0">
                         <TextBox 
+                            Text="{Binding Username}"
                         VerticalAlignment="Center"
                         materialDesign:HintAssist.Hint="Tài khoản"
                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
@@ -51,7 +64,16 @@
                         materialDesign:HintAssist.Foreground="Green" 
                         materialDesign:HintAssist.Hint="Mật khẩu"
                         materialDesign:TextFieldAssist.UnderlineBrush="Green"
-                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
+                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PasswordChanged">
+                                    <i:InvokeCommandAction
+                                        Command="{Binding PasswordChangedCommand}"
+                                        CommandParameter="{Binding ElementName=FloatingPasswordBox}">
+                                    </i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </PasswordBox>
                     </Grid>
                     <Grid Grid.Row="2" Margin="0">
                         <Grid>
@@ -66,6 +88,9 @@
                             <Grid Grid.Column ="0" Margin="0 0 15 0" Grid.Row="1">
                                 <Button 
                                 Content="Đăng nhập"
+                                IsDefault="True"
+                                Command="{Binding LoginCommand}"
+                                CommandParameter="{Binding ElementName=Login_Window}"
                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                                 Style="{StaticResource MaterialDesignRaisedButton}"
                                 ToolTip="Resource name: MaterialDesignRaisedButton" />
@@ -73,6 +98,8 @@
                             <Grid Grid.Column ="1" Margin="0 0 15 0" Grid.Row="1">
                                 <Button 
                                 Content="Thoát"
+                                    Command="{Binding CloseCommand}"
+                                    CommandParameter="{Binding ElementName=Login_Window}"
                                 IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" 
                                 Style="{StaticResource MaterialDesignOutlinedButton}" 
                                 ToolTip="MaterialDesignOutlinedButton" />

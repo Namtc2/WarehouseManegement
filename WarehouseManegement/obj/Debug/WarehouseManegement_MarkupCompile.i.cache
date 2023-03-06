@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\NamTC\Code\WPF\WarehouseManegement\WarehouseManegement\obj\Debug\
+D:\NamTC\Code\WPF\1_WarehouseManegement\WarehouseManegement\obj\Debug\
 WarehouseManegement
 none
 false
 DEBUG;TRACE
-D:\NamTC\Code\WPF\WarehouseManegement\WarehouseManegement\App.xaml
+D:\NamTC\Code\WPF\1_WarehouseManegement\WarehouseManegement\App.xaml
 11-1924428313
-
-181025211037
-181020149369
+4-694794395
+34-1214554420
+231508707173
 CustomersWindow.xaml;InputWindow.xaml;LoginWindow.xaml;MainWindow.xaml;ObjectWindow.xaml;OutputWindow.xaml;ResourceXAML\MainResource.xaml;SuplierWindow.xaml;UnitWindow.xaml;UserControlNamtc\CustomControlBar.xaml;UserWindow.xaml;
 
-True
+False
 
