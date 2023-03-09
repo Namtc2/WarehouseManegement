@@ -11,8 +11,9 @@ namespace WarehouseManegement.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Suplier
+    using WarehouseManegement.ViewModel;
+
+    public partial class Suplier:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Suplier()
@@ -21,12 +22,22 @@ namespace WarehouseManegement.Model
         }
     
         public int Id { get; set; }
-        public string DisplayName { get; set; }
-        public string Address { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string MoreInfo { get; set; }
-        public Nullable<System.DateTime> ContractDate { get; set; }
+        public string _DisplayName;
+        public string DisplayName { get => _DisplayName; set { _DisplayName = value; OnPropertyChanged(); } }
+
+        public string _Address;
+        public string Address { get => _Address; set { _Address = value; OnPropertyChanged(); } }
+
+        public string _Phone;
+        public string Phone { get => _Phone; set { _Phone = value; OnPropertyChanged(); } } 
+        public string _Email;
+        public string Email { get => _Email; set { _Email = value; OnPropertyChanged(); } } 
+        
+        public string _MoreInfo;
+        public string MoreInfo { get => _MoreInfo; set { _MoreInfo = value; OnPropertyChanged(); } } 
+        
+        public Nullable<System.DateTime> _ContractDate;
+        public Nullable<System.DateTime> ContractDate { get => _ContractDate; set { _ContractDate = value; OnPropertyChanged(); } }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Object> Objects { get; set; }

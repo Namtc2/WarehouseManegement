@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace WarehouseManegement.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        private ObservableCollection<TonKho> _TonKhoList; // sử dụng ObservableCollection nó sẽ raise lên giao diện ngày lập tức khi mà dữ liệu của nó có thay đổi
+        public ObservableCollection<TonKho> TonKhoList { get => _TonKhoList; set { _TonKhoList = value; OnPropertyChanged(); } }
         public bool isLoaded = false;
         public ICommand LoadedWindowCommand { get; set; }
         public ICommand UnitCommand { get; set; }
@@ -24,7 +27,7 @@ namespace WarehouseManegement.ViewModel
         {
             LoadedWindowCommand = new RelayCommand<Window>((p) => { return p != null ? true : false; }, (p) =>
             {
-                isLoaded = true;
+                isLoaded = true; 
                 if (p == null) return;
                 p.Hide();
                 LoginWindow loginWd = new LoginWindow();
@@ -35,6 +38,7 @@ namespace WarehouseManegement.ViewModel
                 if (loginVM.IsLogin)
                 {
                     p.Show();
+                    LoadTonKhoData();
                 }
                 else
                 {
@@ -83,6 +87,36 @@ namespace WarehouseManegement.ViewModel
                 opWd.Topmost = true;
                 opWd.ShowDialog();
             });
-        }        
+        }     
+        void LoadTonKhoData()
+        {
+            TonKhoList = new ObservableCollection<TonKho>();
+            var objectList = DataProvider.Ins.DB.Objects;
+            int i = 1;
+            foreach(var item in objectList)
+            {
+                var inputList = DataProvider.Ins.DB.InputInfoes.Where(x => x.IdObject == item.Id);
+                var outpurList = DataProvider.Ins.DB.OutputInfoes.Where(x => x.IdObject == item.Id);
+                int sumInput = 0;
+                int sumOutput = 0;
+                if (inputList != null)
+                {
+                    sumInput = (int)inputList.Sum(p => p.Count);
+                }
+                if (outpurList != null)
+                {
+                    sumOutput = (int)outpurList.Sum(p => p.Count);
+                }
+                TonKho tonKho = new TonKho();
+                tonKho.STT = i;
+                tonKho.Count = sumInput - sumOutput;
+                tonKho.Object = item;
+
+                TonKhoList.Add(tonKho);
+                i++;
+            }
+
+            
+        }
     }
 }

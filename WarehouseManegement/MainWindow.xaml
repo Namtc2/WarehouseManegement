@@ -21,7 +21,7 @@
         WindowStyle="None"
         DataContext="{StaticResource MainVM}"
         WindowStartupLocation="CenterScreen"
-        Title="Phần mềm quản lý kho" Height="450" Width="800">
+        Title="Phần mềm quản lý kho" Height="600" Width="800">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction
@@ -407,12 +407,12 @@
                             <Separator></Separator>
                         </Grid>
                         <Grid Grid.Row="2">
-                            <ListView>
+                            <ListView ItemsSource="{Binding TonKhoList}">
                                 <ListView.View>
                                     <GridView>
-                                        <GridViewColumn Header="STT"></GridViewColumn>
-                                        <GridViewColumn Header="Tên hàng hóa"></GridViewColumn>
-                                        <GridViewColumn Header="Số lượng tồn kho"></GridViewColumn>
+                                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"></GridViewColumn>
+                                        <GridViewColumn Header="Tên hàng hóa" DisplayMemberBinding="{Binding Object.DisplayName}"></GridViewColumn>
+                                        <GridViewColumn Header="Số lượng tồn kho" DisplayMemberBinding="{Binding Count}"></GridViewColumn>
                                     </GridView>
                                 </ListView.View>
                             </ListView>                            

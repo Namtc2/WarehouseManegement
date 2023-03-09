@@ -16,6 +16,7 @@
       FontFamily="{DynamicResource MaterialDesignFont}"
       ResizeMode="NoResize"
       WindowStyle="None"
+      DataContext="{StaticResource UnitVM}"
       xmlns:customUC ="clr-namespace:WarehouseManegement.UserControlNamtc"
       WindowStartupLocation="CenterScreen"
         
@@ -48,16 +49,16 @@
 
             <materialDesign:Card Grid.Row="1" Margin="5">
                 <WrapPanel>
-                    <Button Content="Thêm" Command="{Binding AddUnitCommand}" Margin="5" Width="100"></Button>
-                    <Button Content="Sửa" Command="{Binding EditUnitCommand}" Margin="5" Width="100"></Button>
-                    <Button Content="Xóa" Command="{Binding DeleteUnitCommand}"  Margin="5" Width="100"></Button>
+                    <Button Content="Thêm" Command="{Binding AddCommand}" Margin="5" Width="100"></Button>
+                    <Button Content="Sửa" Command="{Binding EditCommand}" Margin="5" Width="100"></Button>
+                    <Button Content="Xóa" Command="{Binding DeleteCommand}"  Margin="5" Width="100"></Button>
                 </WrapPanel>
             </materialDesign:Card>
 
             <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Visible">
-                    <ListView ItemsSource="{Binding List}"
-                          SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}">
+                    <ListView ItemsSource="{Binding List, Mode=TwoWay}"
+                          SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"></GridViewColumn>

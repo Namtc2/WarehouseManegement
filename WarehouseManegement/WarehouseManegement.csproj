@@ -115,6 +115,7 @@
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>WarehourseManegementModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\TonKho.cs" />
     <Compile Include="Model\Unit.cs">
       <DependentUpon>WarehourseManegementModel.tt</DependentUpon>
     </Compile>
@@ -161,6 +162,8 @@
     <Compile Include="ViewModel\CustomControlBarViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\SuplierViewModel.cs" />
+    <Compile Include="ViewModel\UnitViewModel.cs" />
     <Page Include="CustomersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
